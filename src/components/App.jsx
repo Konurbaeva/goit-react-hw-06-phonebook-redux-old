@@ -1,4 +1,10 @@
+import { useSelector , useDispatch} from "react-redux";
+import { addNewContact, deleteContact } from "../redux/store"
+
 export const App = () => {
+  const value = useSelector(state => state.myValue)
+  const dispatch = useDispatch()
+  console.log(value);
   return (
     <div
       style={{
@@ -10,7 +16,9 @@ export const App = () => {
         color: '#010101'
       }}
     >
-      React homework template
+      {value}
+    <button onClick={dispatch(addNewContact(100))}>Add new contact</button>
+    <button onClick={dispatch(deleteContact(100))}>Delete contact</button>
     </div>
   );
 };
