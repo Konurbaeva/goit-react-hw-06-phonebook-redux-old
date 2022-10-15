@@ -21,9 +21,18 @@ export const myReducer = createReducer(0, {
     [deleteContact]:(state, action) => state- action.payload,
   })
 
+  export const add = createAction('items/add')
+  export const remove = createAction('items/remove')
+
 console.log(addNewContact())
+
+export const itemsReducer = createReducer([], { 
+    [add]:(state, action) => state+ action.payload,
+    [remove]:(state, action) => state- action.payload,
+})
 
 
 export const store = configureStore({ reducer: {
-    myValue: myReducer
+    myValue: myReducer,
+    items: itemsReducer
 } })
