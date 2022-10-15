@@ -26,11 +26,9 @@ export const myReducer = createReducer(0, {
 
 console.log(addNewContact())
 
-// IMMER
 export const itemsReducer = createReducer([], { 
-   // [add]:(state, action) => [...state, action.payload],
-    [add]:(state, action) => state.push(action.payload),
-    [remove]:(state, action) => state- action.payload,
+  [add]:(state, action) => [...state, action.payload],
+  [remove]:(state, action) => state- action.payload,
 })
 
 
